@@ -8,6 +8,9 @@ import Index from "./pages/Index";
 import Chatbots from "./pages/Chatbots";
 import Placeholder from "./pages/Placeholder";
 import NotFound from "./pages/NotFound";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import ForgotPassword from "./pages/ForgotPassword";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +21,9 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route element={<DashboardLayout />}>
             <Route path="/" element={<Index />} />
             <Route path="/chatbots" element={<Chatbots />} />
