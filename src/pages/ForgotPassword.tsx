@@ -11,10 +11,7 @@ const ForgotPassword = () => {
       <div className="hidden lg:flex lg:w-1/2 bg-foreground relative overflow-hidden flex-col justify-between p-12">
         <div className="relative z-10">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-accent flex items-center justify-center">
-              <Bot className="w-5 h-5 text-accent-foreground" />
-            </div>
-            <span className="text-xl font-bold text-primary-foreground tracking-tight">Botifire</span>
+            <img src="/images/botifire_logo.png" alt="Botifire" className="h-10 object-contain" />
           </div>
         </div>
 
@@ -40,18 +37,15 @@ const ForgotPassword = () => {
       <div className="flex-1 flex items-center justify-center p-8 bg-background">
         <div className="w-full max-w-sm space-y-8">
           <div className="lg:hidden flex items-center gap-3 mb-4">
-            <div className="w-9 h-9 rounded-xl bg-accent flex items-center justify-center">
-              <Bot className="w-4 h-4 text-accent-foreground" />
-            </div>
-            <span className="text-lg font-bold text-foreground">Botifire</span>
+            <img src="/images/botifire_logo.png" alt="Botifire" className="h-9 object-contain" />
           </div>
 
           <div>
             <div className="w-12 h-12 rounded-2xl bg-secondary flex items-center justify-center mb-5">
               <Mail className="w-5 h-5 text-muted-foreground" />
             </div>
-            <h2 className="text-2xl font-bold text-foreground">Reset your password</h2>
-            <p className="text-muted-foreground text-sm mt-1">
+            <h2 className="font-display text-3xl font-bold tracking-tight text-foreground">Reset your password</h2>
+            <p className="text-muted-foreground font-medium mt-1.5">
               Enter the email associated with your account and we'll send a reset link.
             </p>
           </div>

@@ -1,4 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -7,22 +22,22 @@
 @layer base {
   :root {
     --background: 210 20% 98%;
-    --foreground: 220 13% 13%;
+    --foreground: 0 0% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 13% 13%;
+    --card-foreground: 0 0% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 13% 13%;
+    --popover-foreground: 0 0% 15%;
 
     --primary: 220 13% 13%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 220 14% 96%;
-    --secondary-foreground: 220 13% 13%;
+    --secondary-foreground: 0 0% 15%;
 
     --muted: 220 14% 96%;
-    --muted-foreground: 220 9% 46%;
+    --muted-foreground: 0 0% 40%;
 
     --accent: 160 84% 39%;
     --accent-foreground: 0 0% 100%;
@@ -45,6 +60,45 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 160 84% 39%;
   }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 213 31% 91%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 213 31% 91%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 213 31% 91%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222.2 47.4% 11.2%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    --accent: 160 84% 39%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 160 84% 39%;
+
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 215.4 16.3% 56.9%;
+    --sidebar-primary: 210 40% 98%;
+    --sidebar-primary-foreground: 222.2 47.4% 1.2%;
+    --sidebar-accent: 222.2 47.4% 11.2%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217.2 32.6% 17.5%;
+    --sidebar-ring: 160 84% 39%;
+  }
 }
 
 @layer base {
@@ -54,6 +108,15 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Inter', system-ui, sans-serif;
   }
 }

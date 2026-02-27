@@ -11,14 +11,18 @@ import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ForgotPassword from "./pages/ForgotPassword";
+import { ThemeProvider } from "./components/theme-provider";
+import { AccentColorProvider } from "@/components/providers/AccentColorProvider";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
+    <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+      <TooltipProvider>
       <Toaster />
       <Sonner />
+      <AccentColorProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<Login />} />
@@ -39,7 +43,9 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
-    </TooltipProvider>
+        </AccentColorProvider>
+      </TooltipProvider>
+    </ThemeProvider>
   </QueryClientProvider>
 );
 

@@ -1,5 +1,6 @@
-import { ArrowUpRight, ArrowDownRight, MessageSquare, Users, DollarSign, Clock } from "lucide-react";
+import { ArrowUpRight, ArrowDownRight, MessageSquare, Users, DollarSign, Clock, Sparkles } from "lucide-react";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+import { useAccentColor } from "@/components/providers/AccentColorProvider";
 
 const stats = [
   { label: "Total Messages", value: "12,847", change: "+12.5%", up: true, icon: MessageSquare },
@@ -32,6 +33,9 @@ const recentConversations = [
 ];
 
 const Index = () => {
+  const { accentColor } = useAccentColor();
+  const accentHex = accentColor.hex || "#1fb881";
+
   return (
     <div className="space-y-6">
       {/* Stats Cards */}
@@ -71,8 +75,8 @@ const Index = () => {
             <AreaChart data={chartData}>
               <defs>
                 <linearGradient id="msgGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="hsl(160, 84%, 39%)" stopOpacity={0.15} />
-                  <stop offset="95%" stopColor="hsl(160, 84%, 39%)" stopOpacity={0} />
+                  <stop offset="5%" stopColor={accentHex} stopOpacity={0.15} />
+                  <stop offset="95%" stopColor={accentHex} stopOpacity={0} />
                 </linearGradient>
               </defs>
               <CartesianGrid strokeDasharray="3 3" stroke="hsl(220, 13%, 91%)" />
@@ -89,7 +93,7 @@ const Index = () => {
               <Area
                 type="monotone"
                 dataKey="messages"
-                stroke="hsl(160, 84%, 39%)"
+                stroke={accentHex}
                 strokeWidth={2}
                 fill="url(#msgGradient)"
               />
@@ -98,14 +102,14 @@ const Index = () => {
         </div>
 
         {/* Traffic Sources */}
-        <div className="rounded-2xl border border-border bg-card p-5">
-          <h3 className="text-sm font-semibold text-foreground mb-6">Traffic Sources</h3>
-          <div className="space-y-5">
+        <div className="rounded-2xl border border-border bg-card p-6">
+          <h3 className="text-xs font-bold text-muted-foreground uppercase tracking-widest mb-6 px-1">Traffic Sources</h3>
+          <div className="space-y-6">
             {trafficSources.map((source) => (
-              <div key={source.label} className="space-y-2">
-                <div className="flex items-center justify-between text-sm">
-                  <span className="text-muted-foreground">{source.label}</span>
-                  <span className="font-medium text-foreground">{source.value}%</span>
+              <div key={source.label} className="space-y-2.5">
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-muted-foreground font-medium">{source.label}</span>
+                  <span className="font-bold text-foreground">{source.value}%</span>
                 </div>
                 <div className="h-2 rounded-full bg-secondary">
                   <div
@@ -120,30 +124,30 @@ const Index = () => {
       </div>
 
       {/* Recent Conversations */}
-      <div className="rounded-2xl border border-border bg-card p-5">
-        <h3 className="text-sm font-semibold text-foreground mb-4">Recent Conversations</h3>
+      <div className="rounded-2xl border border-border bg-card p-6">
+        <h3 className="text-xs font-bold text-muted-foreground uppercase tracking-widest mb-6 px-1">Recent Conversations</h3>
         <div className="overflow-x-auto">
-          <table className="w-full text-sm">
+          <table className="w-full text-xs">
             <thead>
-              <tr className="border-b border-border">
-                <th className="text-left py-3 px-2 text-muted-foreground font-medium">User</th>
-                <th className="text-left py-3 px-2 text-muted-foreground font-medium">Message</th>
-                <th className="text-left py-3 px-2 text-muted-foreground font-medium">Time</th>
-                <th className="text-left py-3 px-2 text-muted-foreground font-medium">Status</th>
+              <tr className="border-b border-border/50">
+                <th className="text-left py-4 px-2 text-[10px] text-muted-foreground font-bold uppercase tracking-widest">User</th>
+                <th className="text-left py-4 px-2 text-[10px] text-muted-foreground font-bold uppercase tracking-widest">Message</th>
+                <th className="text-left py-4 px-2 text-[10px] text-muted-foreground font-bold uppercase tracking-widest">Time</th>
+                <th className="text-left py-4 px-2 text-[10px] text-muted-foreground font-bold uppercase tracking-widest">Status</th>
               </tr>
             </thead>
             <tbody>
               {recentConversations.map((conv, i) => (
-                <tr key={i} className="border-b border-border last:border-0 hover:bg-secondary/50 transition-colors">
-                  <td className="py-3 px-2 font-medium text-foreground">{conv.user}</td>
-                  <td className="py-3 px-2 text-muted-foreground">{conv.message}</td>
-                  <td className="py-3 px-2 text-muted-foreground">{conv.time}</td>
-                  <td className="py-3 px-2">
+                <tr key={i} className="border-b border-border/30 last:border-0 hover:bg-secondary/30 transition-colors group">
+                  <td className="py-4 px-2 font-bold text-foreground">{conv.user}</td>
+                  <td className="py-4 px-2 text-muted-foreground font-medium">{conv.message}</td>
+                  <td className="py-4 px-2 text-muted-foreground/80 text-[11px] tabular-nums">{conv.time}</td>
+                  <td className="py-4 px-2">
                     <span
-                      className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${
+                      className={`inline-flex items-center rounded-lg px-2 py-0.5 text-[10px] font-bold uppercase tracking-tight ${
                         conv.status === "Active"
-                          ? "bg-accent/10 text-accent"
-                          : "bg-secondary text-muted-foreground"
+                          ? "bg-accent/10 text-accent border border-accent/20"
+                          : "bg-secondary text-muted-foreground border border-border/50"
                       }`}
                     >
                       {conv.status}
