@@ -37,7 +37,7 @@ const hexToHsl = (hex: string): string => {
 };
 
 export const colors: AccentColor[] = [
-  { name: "Default", hsl: "160 81% 43%", hex: "#1fb881" },
+  { name: "Default", hsl: "231 44% 74%", hex: "#A0A9DA" },
   { name: "Blue", hsl: "221 83% 53%", hex: "#1e6ef9" },
   { name: "Purple", hsl: "271 91% 65%", hex: "#a855f7" },
   { name: "Rose", hsl: "346 84% 61%", hex: "#f43f5e" },

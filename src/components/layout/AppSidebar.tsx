@@ -9,6 +9,8 @@ import {
   Mic,
   BarChart3,
   CreditCard,
+  Wallet,
+  Database,
   Settings,
   Menu,
   ChevronDown,
@@ -30,31 +32,33 @@ import {
 import { Button } from "@/components/ui/button";
 
 const navigationGroups = [
-  { 
-    title: "", 
-    items: [{ label: "Dashboard", path: "/", icon: LayoutDashboard }] 
-  },
-  { 
-    title: "Setup", 
+  {
+    title: "",
     items: [
-      { label: "Chatbots", path: "/chatbots", icon: Bot },
-      { label: "Training", path: "/training", icon: BookOpen },
-      { label: "Voice Bot", path: "/voice-bot", icon: Mic },
+      { label: "Dashboard", path: "/", icon: LayoutDashboard },
+      // { label: "Analytics", path: "/analytics", icon: BarChart3 },
+      // { label: "Billing", path: "/subscription", icon: Wallet },
+      // { label: "Settings", path: "/settings", icon: Settings },
     ]
   },
-  { 
-    title: "Observe", 
+  {
+    title: "Chatbots",
     items: [
-      { label: "Visitors", path: "/visitors", icon: Users },
+      { label: "Voice Bot", path: "/voice-agents", icon: Mic },
+      { label: "Textual Bot", path: "/text-bots", icon: Bot },
+    ]
+  },
+  {
+    title: "Knowledge",
+    items: [
+      { label: "Knowledge Base", path: "/knowledge-base", icon: Database },
+    ]
+  },
+  {
+    title: "Observe",
+    items: [
       { label: "Conversations", path: "/conversations", icon: MessageSquare },
-      { label: "Reports", path: "/reports", icon: BarChart3 },
-    ]
-  },
-  { 
-    title: "Go Live", 
-    items: [
-      { label: "Integrations", path: "/integrations", icon: Plug },
-      { label: "Billing", path: "/billing", icon: CreditCard },
+      { label: "Analytics", path: "/analytics", icon: BarChart3 },
     ]
   },
 ];
@@ -77,15 +81,15 @@ const AppSidebar = ({ collapsed, onToggle }: AppSidebarProps) => {
         className={cn(
           "flex items-center gap-3 rounded-lg text-sm font-medium transition-all duration-200",
           sidebarCollapsed ? "justify-center px-2 py-2.5" : "px-3 py-2",
-          isActive 
-            ? "bg-card border border-border/30 shadow-sm" 
+          isActive
+            ? "bg-card border border-border/30 shadow-sm"
             : "text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors"
         )}
       >
         <item.icon className={cn("transition-all duration-200 shrink-0", sidebarCollapsed ? "h-6 w-6" : "h-4 w-4", isActive ? "text-accent" : "text-foreground/70")} />
         {!sidebarCollapsed && (
           <div className="flex items-center justify-between flex-1 animate-fade-in translate-x-0">
-             <span className={cn("truncate text-[11px]", isActive ? "text-accent font-bold" : "text-foreground/80")}>
+            <span className={cn("truncate text-[11px]", isActive ? "text-accent font-bold" : "text-foreground/80")}>
               {item.label}
             </span>
           </div>
@@ -180,6 +184,7 @@ const AppSidebar = ({ collapsed, onToggle }: AppSidebarProps) => {
             ))}
 
             <div className="pt-3 border-t border-border/30">
+              <NavItem item={{ label: "Billing", path: "/subscription", icon: CreditCard }} />
               <NavItem item={{ label: "Settings", path: "/settings", icon: Settings }} />
             </div>
           </nav>
